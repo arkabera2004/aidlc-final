@@ -4,9 +4,10 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
+const backendPort = process.env.BACKEND_PORT || "8000";
 const proxyConfig = {
   "/api": {
-    target: "http://localhost:8000",
+    target: `http://localhost:${backendPort}`,
     changeOrigin: true,
     ws: true,
   },
